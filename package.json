@@ -12,14 +12,10 @@
   "keywords": [],
   "scripts": {
     "test": "jest",
-    "ci:test": "jest",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
-    "fix": "gts fix",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "fix": "gts fix"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1"
