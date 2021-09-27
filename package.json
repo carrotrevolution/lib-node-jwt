@@ -1,6 +1,6 @@
 {
   "name": "@carrotrevolution/jwt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "JWT helper library",
   "main": "build/src/index.js",
@@ -11,7 +11,8 @@
   "license": "Apache-2.0",
   "keywords": [],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "ci:test": "jest",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
@@ -24,9 +25,12 @@
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/node": "^14.11.2",
     "gts": "^3.1.0",
+    "jest": "^27.2.2",
+    "ts-jest": "^27.0.5",
     "typescript": "^4.0.3"
   }
 }
