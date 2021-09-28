@@ -3,34 +3,27 @@ import {sign, verify} from 'jsonwebtoken';
 
 export abstract class JWT {
   static sign({
-    data,
-    expiresInSeconds,
-    jwtSecret,
+    payload,
+    expiresIn,
+    secret,
   }: {
-    data: any;
-    expiresInSeconds: number;
-    jwtSecret: string;
+    payload: any;
+    expiresIn: number;
+    secret: string;
   }): string {
-    return sign(data, jwtSecret, {
-      expiresIn: expiresInSeconds,
+    return sign(payload, secret, {
+      expiresIn,
     });
   }
 
-  static verify({token, jwtSecret}: {token: string; jwtSecret: string}): any {
-    return verify(token, jwtSecret);
+  static verify({token, secret}: {token: string; secret: string}): any {
+    return verify(token, secret);
   }
 
-  static fromBearer({
-    authorization,
-    jwtSecret,
-  }: {
-    authorization: string;
-    jwtSecret: string;
-  }) {
+  static fromBearer({bearer, secret}: {bearer: string; secret: string}) {
     try {
-      const token =
-        typeof authorization === 'string' && authorization.split('Bearer ')[1];
-      const data = token && this.verify({token, jwtSecret});
+      const token = typeof bearer === 'string' && bearer.split('Bearer ')[1];
+      const data = token && this.verify({token, secret});
       return data;
     } catch (err) {
       return undefined;

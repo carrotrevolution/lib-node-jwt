@@ -1,10 +1,10 @@
 import {JWT} from '.';
 
 describe('JWT', () => {
-  const jwtSecret = 'secret';
+  const secret = 'secret';
   const hello = {hi: 'world'};
-  const token = JWT.sign({data: {hello}, expiresInSeconds: 10, jwtSecret});
-  const verified = JWT.verify({token, jwtSecret});
+  const token = JWT.sign({payload: {hello}, expiresIn: 10, secret});
+  const verified = JWT.verify({token, secret});
 
   it('should sign an object', () => {
     expect(typeof token).toEqual('string');
