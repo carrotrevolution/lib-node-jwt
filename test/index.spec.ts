@@ -1,4 +1,4 @@
-import {JWT} from '.';
+import {JWT} from '../src';
 
 describe('JWT', () => {
   const secret = 'secret';
