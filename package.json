@@ -1,6 +1,6 @@
 {
   "name": "@carrotrevolution/jwt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "JWT helper library",
   "main": "build/src/index.js",

@@ -11,7 +11,7 @@ export abstract class JWT {
     expiresInSeconds: number;
     jwtSecret: string;
   }): string {
-    return sign({data}, jwtSecret, {
+    return sign(data, jwtSecret, {
       expiresIn: expiresInSeconds,
     });
   }
